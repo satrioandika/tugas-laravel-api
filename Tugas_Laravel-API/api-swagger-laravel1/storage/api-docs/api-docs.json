@@ -1,0 +1,269 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Documentation",
+        "description": "API Documentation",
+        "contact": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api/v1",
+            "description": "API Documentation"
+        }
+    ],
+    "paths": {
+        "/trainer": {
+            "get": {
+                "tags": [
+                    "Trainer"
+                ],
+                "summary": "Trainer - Get All",
+                "description": "Mengambil Data Trainer",
+                "operationId": "listTrainer",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "success": true,
+                                    "message": "Berhasil Mengambil Data Trainer",
+                                    "data": [
+                                        {
+                                            "id": "1",
+                                            "nama": "Satrio Andika",
+                                            "email": "satrio@gmail.com",
+                                            "password": "123",
+                                            "no_hp": "0876543219",
+                                            "status": "1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/trainer/{id}": {
+            "get": {
+                "tags": [
+                    "Trainer"
+                ],
+                "summary": "Trainer - Get By ID",
+                "description": "Mengambil Data Trainer Berdasarkan ID",
+                "operationId": "listTrainerById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID Trainer",
+                        "required": true,
+                        "schema": {
+                            "description": "Masukan ID",
+                            "type": "string",
+                            "default": "1",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "success": true,
+                                    "message": "Berhasil mengambil Data Trainer",
+                                    "data": [
+                                        {
+                                            "id": "1",
+                                            "nama": "Satrio Andika",
+                                            "email": "satrio@gmail.com",
+                                            "password": "123",
+                                            "no_hp": "0876543219",
+                                            "status": "1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/trainer/create": {
+            "post": {
+                "tags": [
+                    "Trainer"
+                ],
+                "summary": "Trainer Insert",
+                "description": "Post data Trainer",
+                "operationId": "insertTrainer",
+                "requestBody": {
+                    "description": "Request Body Description",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "example": {
+                                "id": "1",
+                                "nama": "Satrio Andika",
+                                "email": "satrio@gmail.com",
+                                "password": "123",
+                                "no_hp": "0876543219",
+                                "status": "1"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "success": true,
+                                    "message": "Berhasil menambahkan Data Trainer",
+                                    "data": [
+                                        {
+                                            "id": "1",
+                                            "nama": "Satrio Andika",
+                                            "email": "satrio@gmail.com",
+                                            "password": "123",
+                                            "no_hp": "0876543219",
+                                            "status": "1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/trainer/update": {
+            "put": {
+                "tags": [
+                    "Trainer"
+                ],
+                "summary": "Trainer - Update",
+                "description": "Update data Trainer",
+                "operationId": "updateTrainer",
+                "requestBody": {
+                    "description": "Request Body Description",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "example": {
+                                "id": "1",
+                                "nama": "Satrio Andika",
+                                "email": "satrio@gmail.com",
+                                "password": "123",
+                                "no_hp": "0876543219",
+                                "status": "1"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "success": true,
+                                    "message": "Data berhasil diubah"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/trainer/delete": {
+            "delete": {
+                "tags": [
+                    "Trainer"
+                ],
+                "summary": "Trainer - Delete By ID",
+                "description": "Delete data Trainer",
+                "operationId": "deleteTrainer",
+                "requestBody": {
+                    "description": "Request Body Description",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "example": {
+                                "id": "1",
+                                "nama": "Satrio Andika",
+                                "email": "satrio@gmail.com",
+                                "password": "123",
+                                "no_hp": "0876543219",
+                                "status": "1"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "success": true,
+                                    "message": "Berhasil menghapus Data Trainer"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "description": "Enter Token",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
